@@ -47,5 +47,5 @@ void Rectangle::scale(const double ratio)
 
 Shape* Rectangle::clone() const
 {
-  return new Rectangle(rectangle.pos, r1, r2);
+  return new Rectangle(rectangle);
 }
