@@ -12,6 +12,7 @@ public:
   virtual void move(double dx, double dy) = 0;
   virtual void move(const point_t& pos) = 0;
   virtual void scale(double ratio) = 0;
+  virtual Shape* clone() const = 0;
 };
 
 #endif

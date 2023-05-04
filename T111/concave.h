@@ -12,6 +12,7 @@ public:
   void move(const point_t& newpos) override;
   void move(double dx, double dy) override;
   void scale(double ratio) override;
+  Shape* clone() const override;
 private:
   point_t positions[4];
   std::array< double, 6 > splitIntoTriangles() const;

@@ -2,6 +2,7 @@
 #define RING_H
 #include "base-types.h"
 #include "shape.h"
+#include "rectangle.h"
 
 class Ring : public Shape
 {
@@ -12,9 +13,9 @@ public:
   void move(const point_t& newpos) override;
   void move(double delta_x, double delta_y) override;
   void scale(double k) override;
- // Shape* clone() const override;
+  Shape* clone() const override;
 private:
-  Rectangle rectangle;
+  rectangle_t rectangle;
   double r1, r2;
 };
 

@@ -2,7 +2,7 @@
 #include "rectangle.h"
 
 Ring::Ring(point_t midle, double first, double second) :
-	rectangle({pRight.x, pRight.y, first * 2.0, first * 2.0}),
+	rectangle({first * 2.0, first * 2.0, midle}),
 	r1(first),
 	r2(second)
 {
@@ -26,4 +26,17 @@ void Ring::move(const point_t& newpos)
 void Ring::move(double delta_x, double delta_y)
 {
 	rectangle.pos = calculateVectorSum(rectangle.pos, delta_x, delta_y);
+}
+
+void Ring::scale(double k)
+{
+	r1 *= k;
+	r2 *= k;
+	rectangle.width = r1 * 2.0;
+	rectangle.height = r1 * 2.0;
+}
+
+Shape* Ring::clone() const
+{
+	return new Ring(rectangle.pos, r1, r2);
 }

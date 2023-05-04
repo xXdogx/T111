@@ -106,14 +106,11 @@ int main()
         size++;
         isAdded = false;
       }
-      if (input == "SCALE")
+      if (input == "RING")
       {
-        scale = getScale(std::cin);
-        if (size > 0)
-        {
-          isScale = true;
-        }
-        break;
+        
+        shapes[size] = createRing(std::cin);
+        isAdded = true;
       }
     }
 

@@ -12,7 +12,7 @@ public:
   void move(double dx, double dy) override;
   void move(const point_t& newpos) override;
   void scale(double ratio) override;
- // Shape* clone() const override;
+  Shape* clone() const override;
 
 private:
   rectangle_t rectangle;

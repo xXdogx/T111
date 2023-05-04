@@ -2,6 +2,7 @@
 #include "createShape.h"
 #include "rectangle.h"
 #include "concave.h"
+#include "ring.h"
 
 double* checkInputArray(std::istream& input, double* poss, size_t size)
 {
@@ -30,13 +31,9 @@ Shape* createConcave(std::istream& input)
   return new Concave({poss[0], poss[1]}, {poss[2], poss[3]}, {poss[4], poss[5]}, {poss[6], poss[7]});
 }
 
-scale_t getScale(std::istream& input)
+Shape* createRing(std::istream& input)
 {
-  double poss[3]{};
-  checkInputArray(input, poss, 3);
-  if (poss[2] < 0.0)
-  {
-    throw std::invalid_argument("ERROR! Invalid scale size");
-  }
-  return { {poss[0], poss[1]}, poss[2]};
+  double poss[6]{};
+  checkInputArray(input, poss, 6);
+  return new Ring({ poss[0], poss[1] }, { poss[2] }, { poss[3] });
 }

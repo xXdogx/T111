@@ -67,3 +67,8 @@ void Concave::scale(double ratio)
     position = calculateScale(position, center, ratio);
   }
 }
+
+Shape* Concave::clone() const
+{
+  return new Concave(positions[0], positions[1], positions[2], positions[3]);
+}
